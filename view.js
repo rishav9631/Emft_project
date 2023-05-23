@@ -70,15 +70,15 @@ var UI = (function () {
         var coords_container_x_span = document.createElement("span");
         var coords_container_y_span = document.createElement("span");
 
-        if (point_charge.polarity > 0) color_code_element.src = "images/posChargeColorCode.png";
-        else color_code_element.src = "images/negChargeColorCode.png";
+        if (point_charge.polarity > 0) color_code_element.src = "posChargeColorCode.png";
+        else color_code_element.src = "negChargeColorCode.png";
         right_block.className = "liMainDiv";
         color_code_element.id = "colorCodeBar" + point_charge.id;
         list_element.className = "liClassNoShade";
         list_element.id = "li" + point_charge.id;
         text_element.id = "pcStrength" + point_charge.id;
         text_element.className = "textElement";
-        expand_button.src = "images/expandPanel.png";
+        expand_button.src = "expandPanel.png";
         expand_button.width = "170";
         expand_button.className = "listElementExpandButton";
         expand_button.id = "eb" + point_charge.id;
@@ -273,7 +273,7 @@ var UI = (function () {
         var expand_button = document.getElementById("eb" + id);
         var array_index;
         if (expand_button.alt == "1") {
-            expand_button.src = "images/contractPanel.png";
+            expand_button.src = "contractPanel.png";
             var current_element = CanvasField.get_charge_element_from_id(id);
             if (current_element.point_or_line == 1) {
                 document.getElementById("xPos" + id).innerHTML = current_element.x_pos-300;
@@ -287,7 +287,7 @@ var UI = (function () {
                 document.getElementById("angle" + id).innerHTML = -(current_element.angle).toFixed(4);
             }
         }
-        else expand_button.src = "images/expandPanel.png";
+        else expand_button.src = "expandPanel.png";
         expand_button.alt = -expand_button.alt;
     }
 
@@ -469,11 +469,11 @@ var UI = (function () {
 
     function open_point_charge_options_modal (point_charge) {
         if (point_charge.polarity == 1) {
-            polarity_div_image_point_charge_modal.src = "images/posCharge.png";
+            polarity_div_image_point_charge_modal.src = "posCharge.png";
             polarity_div_image_point_charge_modal.alt = "1";
         }
         else {
-            polarity_div_image_point_charge_modal.src = "images/negCharge.png";
+            polarity_div_image_point_charge_modal.src = "negCharge.png";
             polarity_div_image_point_charge_modal.alt = "-1";
         }
 
@@ -497,11 +497,11 @@ var UI = (function () {
 
     function open_line_charge_options_modal (line_charge) {
         if (line_charge.polarity == 1) {
-            polarity_div_image_line_charge_modal.src = "images/posCharge.png";
+            polarity_div_image_line_charge_modal.src = "posCharge.png";
             polarity_div_image_line_charge_modal.alt = "1";
         }
         else {
-            polarity_div_image_line_charge_modal.src = "images/negCharge.png";
+            polarity_div_image_line_charge_modal.src = "negCharge.png";
             polarity_div_image_line_charge_modal.alt = "-1";
         }
 
@@ -547,11 +547,11 @@ var UI = (function () {
 
             if (polarity == "1") {
                 document.getElementById("pcStrength" + point_charge.id).innerHTML = point_charge.charge_strength +" C </br>Point Charge </br>";
-                document.getElementById("colorCodeBar" + point_charge.id).src = "images/posChargeColorCode.png";
+                document.getElementById("colorCodeBar" + point_charge.id).src = "posChargeColorCode.png";
             }
             else {
                 document.getElementById("pcStrength" + point_charge.id).innerHTML = "-" + point_charge.charge_strength +" C </br>Point Charge </br>";
-                document.getElementById("colorCodeBar" + point_charge.id).src = "images/negChargeColorCode.png";
+                document.getElementById("colorCodeBar" + point_charge.id).src = "negChargeColorCode.png";
             }
 
             point_charge.x_pos = x_pos;
@@ -679,11 +679,11 @@ function makeColumns(cellNum) {
 
                 if (polarity == "1") {
                     document.getElementById("lcChargeDensity" + line_charge.id).innerHTML = line_charge.linear_charge_density +" C/unit </br>Line Charge</br>";
-                    document.getElementById("colorCodeBar" + line_charge.id).src = "images/posChargeColorCode.png";
+                    document.getElementById("colorCodeBar" + line_charge.id).src = "posChargeColorCode.png";
                 }
                 else {
                     document.getElementById("lcChargeDensity" + line_charge.id).innerHTML = "-" + line_charge.linear_charge_density +" C/unit </br>Line Charge </br>";
-                    document.getElementById("colorCodeBar" + line_charge.id).src = "images/negChargeColorCode.png";
+                    document.getElementById("colorCodeBar" + line_charge.id).src = "negChargeColorCode.png";
                 }
 
                 return true;
@@ -737,14 +737,14 @@ function makeColumns(cellNum) {
 
     function change_charge_polarity_image_in_point_charge_modal () {
         polarity_div_image_point_charge_modal.alt = -polarity_div_image_point_charge_modal.alt;
-        if (polarity_div_image_point_charge_modal.alt == "-1") polarity_div_image_point_charge_modal.src = "images/negCharge.png";
-        else polarity_div_image_point_charge_modal.src = "images/posCharge.png";
+        if (polarity_div_image_point_charge_modal.alt == "-1") polarity_div_image_point_charge_modal.src = "negCharge.png";
+        else polarity_div_image_point_charge_modal.src = "posCharge.png";
     }
 
     function change_charge_polarity_image_in_line_charge_modal () {
         polarity_div_image_line_charge_modal.alt = -polarity_div_image_line_charge_modal.alt;
-        if (polarity_div_image_line_charge_modal.alt == "-1") polarity_div_image_line_charge_modal.src = "images/negCharge.png";
-        else polarity_div_image_line_charge_modal.src = "images/posCharge.png";
+        if (polarity_div_image_line_charge_modal.alt == "-1") polarity_div_image_line_charge_modal.src = "negCharge.png";
+        else polarity_div_image_line_charge_modal.src = "posCharge.png";
     }
 
     function close_options_pop_up () {
