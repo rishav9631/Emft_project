@@ -156,7 +156,7 @@
     display: inline-block;
     width: 55px;
     height: 53px;
-    background-image:url(images/addButton_sprites.gif);
+    background-image:url(addButton_sprites.gif);
     background-position: 0px 70px;
     cursor: pointer;
 } */
@@ -301,14 +301,14 @@
     position: absolute;
     top: 6px;
     right: 6px;
-    background: url(images/cross.png);
+    background: url(cross.png);
     width: 21px;
     height: 21px;
     /* cursor: pointer; */
 }
 
 .crossImage:hover {
-    background: url(images/crossHover.png);
+    background: url(crossHover.png);
 }
 
 .optionsHeadingPopUp {
@@ -404,7 +404,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    background-image: url(images/settingsGearLarge.png);
+    background-image: url(settingsGearLarge.png);
     background-repeat: no-repeat;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -413,11 +413,11 @@
 }
 
 .listOptionsButton:hover {
-    background-image: url(images/settingsGearHoverLarge.png);
+    background-image: url(settingsGearHoverLarge.png);
 }
 
 .listOptionsButton:active {
-    background-image: url(images/settingsGearLarge.png);
+    background-image: url(settingsGearLarge.png);
 }
 
 .fullScreenDiv {
