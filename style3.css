@@ -23,7 +23,7 @@ nav{
     padding: 0 8%;
     position: relative;
     background-color: rgb(0, 0, 0);
-    background-image: url(img/Sim3.png);
+    background-image: url(Sim3.png);
     background-repeat: no-repeat;
     background-size:cover;
 }
