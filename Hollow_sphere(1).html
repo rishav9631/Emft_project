@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hollow Sphere Potential</title>
+	<link rel="stylesheet" href="Hollow_sphere.css">
+</head>
+<body>
+	<div class="header">
+		<nav>
+		
+		  <div class="abc">
+			<a href="Elec3.html"><img src="img/Nitjsrlogo.png" class="logo" alt=""></a>
+		  </div>
+	  
+		<ul class="nav-links">
+		  <li><a href="Elec3.html">Home</a></li>
+		  <li><a href="index.html">EMF1</a></li>
+		  <li><a href="EMF2.html">EMF2</a></li>
+		  <li><a href="">Contact-Us</a></li>
+		  <li class="btn"><a href="">Sign Up</a></li>
+		</ul>
+	  </nav>
+	</div>
+
+      <hr />
+
+	<div class="container">
+       <div class="center">
+        <h1>Hollow Sphere Potential</h1>
+        <p>Enter the radius and charge of a hollow sphere, and then enter the coordinates of the point where you want to find the potential due to that hollow sphere:</p>
+       </div>
+
+	<!-- Input fields for hollow sphere radius and charge -->
+
+
+    <label for="q">Hollow sphere charge:</label>
+	<input type="text" id="q"><br>
+
+
+	<label for="r">Hollow sphere radius:</label>
+	<input type="text" id="r"><br>
+
+	<label for="x">X-coordinate (in m):</label>
+    <input type="text" id="x" /><br />
+
+    <label for="y">Y-coordinate (in m):</label>
+    <input type="text" id="y" /><br />
+
+    <label for="z">Z-coordinate (in m):</label>
+    <input type="text" id="z" /><br />
+
+	<!-- Input fields for point where potential is to be calculated -->
+	<h3>Calculate potential at point:</h3>
+
+	<label for="x">X-coordinate:</label>
+	<input type="text" id="x"><br>
+
+	<label for="y">Y-coordinate:</label>
+	<input type="text" id="y"><br>
+
+	<label for="z">Z-coordinate:</label>
+	<input type="text" id="z"><br>
+
+	<!-- Button to calculate potential due to hollow sphere -->
+	<button onclick="calculate()">Calculate Potential</button>
+
+	<!-- Result -->
+	<div id="result"></div>
+
+	<!-- JavaScript code to calculate potential due to hollow sphere -->
+	<script>
+	function calculate() {
+	  var q = document.getElementById("q").value;
+	  var r = document.getElementById("r").value;
+	  var x = document.getElementById("x").value;
+	  var y = document.getElementById("y").value;
+	  var z = document.getElementById("z").value;
+
+	  // Calculate distance from point to center of sphere
+	  var d = Math.sqrt(x*x + y*y + z*z);
+
+	  // Calculate potential due to hollow sphere
+	  if (d > r) {
+	    var V = k*q/d;
+	  } else {
+	    var V = k*q/r;
+	  }
+
+	  // Display result
+	  document.getElementById("result").innerHTML = "The potential due to the hollow sphere is " + V + " volts.";
+	}
+	var k = 9e9; // Coulomb's constant
+	</script>
+
+</body>
+</html>
+

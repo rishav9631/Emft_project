@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="Payment.css">
+  </head>
+  <body>
+    <div class="container">
+      <form action="" method="get">
+        <div class="heading"><h1 class="heading">PAYMENT FORM</h1></div>
+      <hr>
+      <h2>User Information</h2>
+      
+      <p>Your Name: *
+        <input type="text" name="Your_name" placeholder="Rahul Raaz" required>
+      </p>
+      
+      <p>
+        <fieldset>
+          <legend>Gender</legend>
+          Male <input type="radio" name="Gender" id="Male">
+          Female <input type="radio" name="Gender" id="Female">
+        </fieldset>
+      </p>
+      <p>Address:</p>
+      <textarea name="Address" id="Add" cols="8" rows="10"></textarea>
+      <p>Email:
+        <input type="email" name="Email" id="Email" placeholder="rahuljha9613@gmail.com">
+      </p>
+      <p>Pincode:
+        <input type="text" name="Pincode" placeholder="842002">
+      </p>
+      <hr>
+      <h2>Payment Information</h2>
+      <p>Card Type:
+        <select name="card-type" id="card-type">
+          <option value="">--Select a card Type</option>
+          <option value="Visa">Visa</option>
+          <option value="Mastercard">Mastercard</option>
+          <option value="Rupay">Rupay</option>
+        </select>
+      </p>
+      <p>Card Number:
+        <input type="text" name="Card_number" placeholder="0000-0000-0000">
+      </p>
+      <p>Expiration Date:
+        <input type="date" name="Exp_date" id="Exp_date">
+      </p>
+      <p>Cvv:
+        <input type="password" name="password" id="password">
+      </p>
+      <p><input type="submit" value="Pay Now"></p>
+      </form>
+     
+    </div>
+ 
+  </body>
+</html>

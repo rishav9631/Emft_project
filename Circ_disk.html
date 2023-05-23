@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Infinite Line Charge Potential Calculator</title>
+    <link rel="stylesheet" href="Inf.css" />
+  </head>
+  <body>
+    <div class="header">
+        <nav>
+        
+          <div class="abc">
+            <a href="Elec3.html"><img src="img/Nitjsrlogo.png" class="logo" alt=""></a>
+          </div>
+      
+        <ul class="nav-links">
+          <li><a href="Elec3.html">Home</a></li>
+          <li><a href="index.html">EMF1</a></li>
+          <li><a href="EMF2.html">EMF2</a></li>
+          <li><a href="">Contact-Us</a></li>
+          <li class="btn"><a href="">Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    
+    <div class="container">
+
+      <div class="heading">
+        <h1>Charged Disk Potential Calculator</h1>
+      </div>
+      <p>
+        Enter the value and coordinates of a Infinite line charge, and then enter the
+        coordinates of the point where you want to find the potential due to that
+        point charge:
+      </p>
+        <div class="container">
+            
+            
+            <div class="form-group">
+              <label for="diskChargeDensity">Disk Charge Density (σ):</label>
+              <input type="number" id="diskChargeDensity" step="any">
+            </div>
+            
+            <div class="form-group">
+              <label for="diskCenterX">Disk Center X Coordinate:</label>
+              <input type="number" id="diskCenterX" step="any">
+            </div>
+            
+            <div class="form-group">
+              <label for="diskCenterY">Disk Center Y Coordinate:</label>
+              <input type="number" id="diskCenterY" step="any">
+            </div>
+            
+            <div class="form-group">
+              <label for="diskCenterZ">Disk Center Z Coordinate:</label>
+              <input type="number" id="diskCenterZ" step="any">
+            </div>
+            
+            <div class="form-group">
+              <label for="pointX">Point X Coordinate:</label>
+              <input type="number" id="pointX" step="any">
+            </div>
+            
+            <div class="form-group">
+              <label for="pointY">Point Y Coordinate:</label>
+              <input type="number" id="pointY" step="any">
+            </div>
+            
+            <div class="form-group">
+              <label for="pointZ">Point Z Coordinate:</label>
+              <input type="number" id="pointZ" step="any">
+            </div>
+            
+            <button class="btn-calculate" onclick="calculatePotential()">Calculate Potential</button>
+            
+            <div class="result" id="result"></div>
+          </div>
+          
+          <script>
+            function calculatePotential() {
+              const diskChargeDensity = parseFloat(document.getElementById('diskChargeDensity').value);
+              const diskCenterX = parseFloat(document.getElementById('diskCenterX').value);
+              const diskCenterY = parseFloat(document.getElementById('diskCenterY').value);
+              const diskCenterZ = parseFloat(document.getElementById('diskCenterZ').value);
+              const pointX = parseFloat(document.getElementById('pointX').value);
+              const pointY = parseFloat(document.getElementById('pointY').value);
+              const pointZ = parseFloat(document.getElementById('pointZ').value);
+              
+              const k = 9e9; // Electrostatic constant
+              
+              // Calculate the potential using the formula V = (k * σ * R^2) / (2 * ε0) * [1 / sqrt((pointX - diskCenterX)^2 + (pointY - diskCenterY)^2 + (pointZ - diskCenterZ)^2)]
+              const potential = (k * diskChargeDensity) / (2 * Math.sqrt(Math.pow((pointX - diskCenterX), 2) + Math.pow((pointY - diskCenterY), 2) + Math.pow((pointZ - diskCenterZ), 2)));
+              
+              document.getElementById('result').innerHTML = "The potential at the given point is: " + potential + " volts";
+            }
+          </script>
+
+      
+       
+    </body>
+      

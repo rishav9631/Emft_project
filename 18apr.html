@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Point Charge Potential</title>
+    <link rel="stylesheet" href="Point.css">
+  </head>
+  <body>
+    <div class="container">
+        <div class="heading">
+            <h1>Point Charge Potential</h1>
+        </div>
+    <p>
+      Enter the value and coordinates of a point charge, and then enter the
+      coordinates of the point where you want to find the potential due to that
+      point charge:
+    </p>
+
+    <!-- Input fields for point charge value and coordinates -->
+    <label for="q">Point charge value (In C):</label>
+    <input type="text" id="q" /><br />
+
+    <label for="x">X-coordinate:</label>
+    <input type="text" id="x" /><br />
+
+    <label for="y">Y-coordinate:</label>
+    <input type="text" id="y" /><br />
+
+    <!-- Input fields for point where potential is to be calculated -->
+    <h3>Calculate potential at point:</h3>
+
+    <label for="x2">X-coordinate in m:</label>
+    <input type="text" id="x2" /><br />
+
+    <label for="y2">Y-coordinate in m:</label>
+    <input type="text" id="y2" /><br />
+
+    <!-- Button to calculate potential due to point charge -->
+    <button onclick="calculate()">Calculate Potential</button>
+
+    <!-- Result -->
+    <div id="result"></div>
+
+    <!-- JavaScript code to calculate potential due to point charge -->
+    <script>
+      function calculate() {
+        // Get the value and coordinates of the point charge
+        var q = parseFloat(document.getElementById("q").value);
+        var x1 = parseFloat(document.getElementById("x").value);
+        var y1 = parseFloat(document.getElementById("y").value);
+
+        // Get the coordinates of the point where potential is to be calculated
+        var x2 = parseFloat(document.getElementById("x2").value);
+        var y2 = parseFloat(document.getElementById("y2").value);
+
+        // Calculate the distance between the two points
+        var r = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+
+        // Calculate the potential due to the point charge
+        var k = 9 * Math.pow(10, 9); // Coulomb's constant
+        var result = (k * q) / r;
+
+        // Display the result
+        document.getElementById("result").innerHTML =
+          "The potential at (" +
+          x2 +
+          ", " +
+          y2 +
+          ") due to a point charge of " +
+          q +
+          " C at (" +
+          x1 +
+          ", " +
+          y1 +
+          ") is " +
+          result.toFixed(2) +
+          " V.";
+      }
+    </script>
+    </div>
+  </body>
+</html>
+``

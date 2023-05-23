@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Infinite Line Charge Potential Calculator</title>
+    <link rel="stylesheet" href="Inf.css" />
+  </head>
+  <body>
+    <div class="header">
+        <nav>
+        
+          <div class="abc">
+            <a href="Elec3.html"><img src="img/Nitjsrlogo.png" class="logo" alt=""></a>
+          </div>
+      
+        <ul class="nav-links">
+          <li><a href="Elec3.html">Home</a></li>
+          <li><a href="index.html">EMF1</a></li>
+          <li><a href="EMF2.html">EMF2</a></li>
+          <li><a href="">Contact-Us</a></li>
+          <li class="btn"><a href="">Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    
+    <div class="container">
+
+      <div class="heading">
+        <h1>Infinite Line Charge Potential Calculator</h1>
+      </div>
+      <p>
+        Enter the value and coordinates of a Infinite line charge, and then enter the
+        coordinates of the point where you want to find the potential due to that
+        point charge:
+      </p>
+      <div class="container">
+        <h2>Line Charge Potential Calculator</h2>
+        
+        <div class="form-group">
+          <label for="lineChargeDensity">Line Charge Density (λ):</label>
+          <input type="number" id="lineChargeDensity" step="any">
+        </div>
+        
+        <div class="form-group">
+          <label for="distance">Distance from Line Charge (r):</label>
+          <input type="number" id="distance" step="any">
+        </div>
+        
+        <button class="btn-calculate" onclick="calculatePotential()">Calculate Potential</button>
+        
+        <div class="result" id="result"></div>
+      </div>
+      
+      <script>
+        function calculatePotential() {
+          const lineChargeDensity = parseFloat(document.getElementById('lineChargeDensity').value);
+          const distance = parseFloat(document.getElementById('distance').value);
+          
+          const k = 9e9; // Electrostatic constant
+          const r0 = Infinity; // Reference distance
+          
+          // Calculate the potential using the formula V = kλ ln(r/r0)
+          const potential = k * lineChargeDensity * Math.log(distance / r0);
+          
+          document.getElementById('result').innerHTML = "The potential at the given point is: " + potential + " volts";
+        }
+      </script>
+
+      
+       
+    </body>
+      

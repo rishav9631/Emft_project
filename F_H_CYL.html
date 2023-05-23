@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hollow Cylinder Potential Calculator</title>
+    <link rel="stylesheet" href="Inf.css" />
+  </head>
+  <body>
+    <div class="header">
+      <nav>
+        <div class="abc">
+          <a href="Elec3.html"
+            ><img src="img/Nitjsrlogo.png" class="logo" alt=""
+          /></a>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="Elec3.html">Home</a></li>
+          <li><a href="index.html">EMF1</a></li>
+          <li><a href="EMF2.html">EMF2</a></li>
+          <li><a href="">Contact-Us</a></li>
+          <li class="btn"><a href="">Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container">
+      <h2>Hollow Cylinder Potential Calculator</h2>
+
+      <div class="form-group">
+        <label for="linearChargeDensity">Linear Charge Density (λ):</label>
+        <input type="number" id="linearChargeDensity" step="any" />
+      </div>
+
+      <div class="form-group">
+        <label for="r1">Inner Radius of the Cylinder (r1) (in m):</label>
+        <input type="number" id="r1" step="any" />
+      </div>
+
+      <div class="form-group">
+        <label for="r2">Outer Radius of the Cylinder (r2) (in m):</label>
+        <input type="number" id="r2" step="any" />
+      </div>
+
+      <div class="form-group">
+        <label for="length">Length of the Cylinder (L) (in m):</label>
+        <input type="number" id="length" step="any" />
+      </div>
+
+      <div class="form-group">
+        <label for="pointX">Point X Coordinate :</label>
+        <input type="number" id="pointX" step="any" />
+      </div>
+
+      <div class="form-group">
+        <label for="pointY">Point Y Coordinate:</label>
+        <input type="number" id="pointY" step="any" />
+      </div>
+
+      <div class="form-group">
+        <label for="pointZ">Point Z Coordinate:</label>
+        <input type="number" id="pointZ" step="any" />
+      </div>
+
+      <button class="btn-calculate" onclick="calculatePotential()">
+        Calculate Potential
+      </button>
+
+      <div class="result" id="result"></div>
+    </div>
+
+    <script>
+      function calculatePotential() {
+        const linearChargeDensity = parseFloat(
+          document.getElementById("linearChargeDensity").value
+        );
+        const length = parseFloat(document.getElementById("length").value);
+        const pointX = parseFloat(document.getElementById("pointX").value);
+        const pointY = parseFloat(document.getElementById("pointY").value);
+        const pointZ = parseFloat(document.getElementById("pointZ").value);
+        const r1 = parseFloat(document.getElementById("r1").value);
+        const r2 = parseFloat(document.getElementById("r2").value);
+
+        const k = 9e9; // Electrostatic constant
+        const epsilon0 = 8.854e-12; // Vacuum permittivity
+
+        // Calculate the distance r from the given point to the center of the cylinder
+        const r = Math.sqrt(
+          Math.pow(pointX, 2) + Math.pow(pointY, 2) + Math.pow(pointZ, 2)
+        );
+
+        // Calculate the potential using the formula V = (k * λ * L) / (2 * π * ε0) * ln(r2/r1)
+        const potential =
+          ((k * linearChargeDensity * length) / (2 * Math.PI * epsilon0)) *
+          Math.log(r2 / r1);
+
+        document.getElementById("result").innerHTML =
+          "The potential at the given point is: " + potential + " volts";
+      }
+    </script>
+  </body>
+</html>

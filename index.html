@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="main.css"/>
+    <script type="text/javascript" src="jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="view.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="slidingButtons.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans|Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style3.1.css" />
+</head>
+    
+<body onload="UI.initialize(); CanvasField.initialize()">
+
+    <div class="header">
+        <nav>
+        
+          <div class="abc">
+            <a href="Elec3.html"><img src="img/Nitjsrlogo.png" class="logo" alt=""></a>
+          </div>
+      
+        <ul class="nav-links">
+          <li><a href="Elec3.html">Home</a></li>
+          <li><a href="index.html">EMF1</a></li>
+          <li><a href="EMF2.html">EMF2</a></li>
+          <li><a href="">Contact-Us</a></li>
+          <li class="btn"><a href="">Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+  
+      <hr />
+
+    <div id = "header">Electric field simulator</div>
+
+    <div id = "headers"><h3>This canva field is limited between the range [-300,300]for x and y coordinates currently</h3></div>
+    
+    <div id = "canvasContainer">
+        <div id="toolsContainer">
+            <div class = "toolInnerContainerLabel"><H4>Point Charge</H4></div>
+            <div id = "pointCharge" class= "toolInnerContainer">
+                <div id="addPositive" onclick="CanvasField.add_point_charge(1)" title="Add Positive Point Charge"></div>
+                <div id="addNegative" onclick="CanvasField.add_point_charge(-1)" title="Add Negative Point Charge"></div>
+                <div class="expContainer">
+                    <span class="promptStyle">STRENGTH: </span>
+                    <input type="text" class="textContainer" id="strengthText">
+                </div>
+                <div class="expContainer">
+                    <span class="promptStyle">X POSITION: </span>
+                    <input type="text" class="textContainer" id="xPosText">
+                </div>
+                <div class="expContainer">          
+                    <span class="promptStyle">Y POSITION: </span>
+                    <input type="text" class="textContainer" id="yPosText">
+                </div>
+                <button class="expandable">options</button>
+            </div>
+            
+
+            <div class = "toolInnerContainerLabel"><H4>Electric Field Lines emerge from Blue (+ve) colored charge and terminates to Red(-ve).</H4></div>
+            
+    
+
+
+ 
+        </div>
+        <div id = "chargeList">
+            <div id="titleChargeList">ELEMENTS LIST</div>
+            
+        </div>
+        <canvas id="canvas" width="600" height="600"></canvas>
+        <div id="fullScreenDiv" class="fullScreenDiv fullScreenDivFade" onclick="UI.close_options_pop_up(); CanvasField.enable_mouse_actions()"></div>
+        <div class="optionsPointChargePopUp fullScreenDivFade popUp">
+           <div class="optionsHeadingPopUp fullScreenDivFade">
+              OPTIONS
+              <div class="crossImage" onclick="UI.close_options_pop_up()"></div>
+           </div>
+           
+           <div class="optionsLeftContainer">
+              <div class="optionsTextContainer">X POSITION: </div>
+              <div class="optionsTextContainer">Y POSITION: </div>
+              <div class="optionsTextContainer">POLARITY: </div>
+           </div>
+           <div class="optionsRightContainer">
+              <div class="optionsTextContainer"><input id="optionsXPOS" class="" type="text" size="6"></div>
+              <div class="optionsTextContainer"><input id="optionsYPOS" class="" type="text" size="6"></div>
+              <div><img id="polarityDivPicPointChargeModal" class="optionsPosNegSel" onclick="UI.change_charge_polarity_image_in_point_charge_modal()"></div>
+           </div>
+           <div class="optionsBottomContainer">
+    
+              <div id="optionsUpdateDeleteButtonPointCharge" class="optionsUpdateDeleteButton">Delete</div>
+           </div>
+        </div>
+        <div id="container">
+        </div>
+        <div class="optionsLineChargePopUp fullScreenDivFade popUp">
+           <div class="optionsHeadingPopUp fullScreenDivFade">
+              OPTIONS
+              <div class="crossImage" onclick="UI.close_options_pop_up()"></div>
+           </div>
+           <div class="optionsLineChargeLeftContainer">
+              <div class="optionsTextContainer">CHARGE DENSITY: </div>
+              <div class="optionsTextContainer">LENGTH PER CHARGE: </div>
+              <div class="optionsTextContainer">START X: </div>
+              <div class="optionsTextContainer">START Y: </div>
+              <div class="optionsTextContainer">END X: </div>
+              <div class="optionsTextContainer">END Y: </div>
+              <div class="optionsTextContainer">POLARITY: </div>
+           </div>
+           <div class="optionsLineChargeRightContainer">
+              <div class="optionsTextContainer"><input id="optionsChargeDensity" class="" type="text" size="6"></div>
+              <div class="optionsTextContainer"><input id="optionsLengthPerPoint" class="" type="text" size="6"></div>
+              <div class="optionsTextContainer"><input id="optionsStartXPos" class="" type="text" size="6"></div>
+              <div class="optionsTextContainer"><input id="optionsStartYPos" class="" type="text" size="6"></div>
+              <div class="optionsTextContainer"><input id="optionsEndXPos" class="" type="text" size="6"></div>
+              <div class="optionsTextContainer"><input id="optionsEndYPos" class="" type="text" size="6"></div>
+              <div><img id="polarityDivPicLineChargeModal" class="optionsPosNegSel" onclick="UI.change_charge_polarity_image_in_line_charge_modal()"></div>
+           </div>
+           <div class="optionsBottomContainer">
+              <div class="optionsUpdateDeleteButton" onclick="CanvasField.update_line_charge()">Update</div>
+              <div id="optionsUpdateDeleteButtonLineCharge" class="optionsUpdateDeleteButton">Delete</div>
+           </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        // var _gaq = _gaq || [];
+        // _gaq.push(['_setAccount', 'UA-37350827-1']);
+        // _gaq.push(['_trackPageview']);
+
+        // (function() {
+        // var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        // ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        // var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        // })();
+
+    </script>
+
+<footer class="foot">
+    <ul class="nav-link">
+      <li><a href="Donate.html">Donate-Us</a></li>
+      <li><a href="">Carres</a></li>
+      <li><a href="">Services</a></li>
+      <li><a href="">@Copyright-2020</a></li>
+      
+    </ul>
+   </footer>
+</body>
+
+</html>
