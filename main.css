@@ -126,7 +126,7 @@
     display: inline-block;
     width: 55px;
     height: 53px;
-    background-image:url(images/addButton_sprites.gif);
+    background-image:url(addButton_sprites.gif);
     background-position: 0px 0px;
     cursor: pointer;
 }
@@ -141,7 +141,7 @@
     display: inline-block;
     width: 55px;
     height: 53px;
-    background-image:url(images/addButton_sprites.gif);
+    background-image:url(addButton_sprites.gif);
     background-position: 0px 123px;
     cursor: pointer;
 }
